@@ -1,0 +1,29 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+header {
+    padding: 20px 35px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+main {
+    padding: 0 35px;
+    display: flex;
+    flex-direction: column;
+}
+section {
+    text-align: center;
+}
+h1 {
+    margin: 20px 0;
+}
+p {
+    margin: 20px 0;
+}
+button {
+    margin: 20px 0;
+}
