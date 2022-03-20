@@ -18,12 +18,6 @@ main {
 section {
     text-align: center;
 }
-h1 {
-    margin: 20px 0;
-}
-p {
-    margin: 20px 0;
-}
-button {
+h1, p, button {
     margin: 20px 0;
 }
