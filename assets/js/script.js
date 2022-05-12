@@ -1,68 +1,38 @@
-var generateBtn = document.querySelector("button");
+var generateBtn = document.querySelector("#quiz");
+var quizFieldEl = document.querySelector("#quiz-field");
+var intro = document.querySelector("#intro");
+var questions = [];
 
-var questions = [
-    // question 1  \n\ is the correct answer
-    {
-        prompt: "question 1\n(a) answer 1\n\(b) answer 2\n(c) answer 3\n(d) answer 4",
-        answer:"a"
-    },
-    // question 2
-    {
-        prompt: "question 1\n(a) answer 1\n\(b) answer 2\n(c) answer 3\n(d) answer 4",
-        answer:"a"
-    },
-    // question 3
-    {
-        prompt: "question 1\n(a) answer 1\n\(b) answer 2\n(c) answer 3\n(d) answer 4",
-        answer:"a"
-    },
-    // question 4
-    {
-        prompt: "question 1\n(a) answer 1\n\(b) answer 2\n(c) answer 3\n(d) answer 4",
-        answer:"a"
-    },
-    // question 5
-    {
-        prompt: "question 1\n(a) answer 1\n\(b) answer 2\n(c) answer 3\n(d) answer 4",
-        answer:"a"
-    },
-    // question 6
-    {
-        prompt: "question 1\n(a) answer 1\n\(b) answer 2\n(c) answer 3\n(d) answer 4",
-        answer:"a"
-    },
-    // question 7
-    {
-        prompt: "question 1\n(a) answer 1\n\(b) answer 2\n(c) answer 3\n(d) answer 4",
-        answer:"a"
-    },
-    // question 8
-    {
-        prompt: "question 1\n(a) answer 1\n\(b) answer 2\n(c) answer 3\n(d) answer 4",
-        answer:"a"
-    },
-    // question 9
-    {
-        prompt: "question 1\n(a) answer 1\n\(b) answer 2\n(c) answer 3\n(d) answer 4",
-        answer:"a"
-    },
-    // question 10
-    {
-        prompt: "question 1\n(a) answer 1\n\(b) answer 2\n(c) answer 3\n(d) answer 4",
-        answer:"a"
-    },
-]
-function startQuiz() {
-    for(var i=0; i < questions.length; i++) {
-        var response = window.prompt(questions[i].prompt);
-        if (response == questions [i].answer) {
-        alert("Correct!");
-    } else {
-        alert("You foolish fool!");
-        //time penalty
-    }
-    }
+function startQuiz(event) {
+    event.preventDefault();
+    //clear section
+    intro.remove();
+
+    generateQuestion();
 };
+
+function generateQuestion() {
+    //create question
+    var questionFormEl = document.createElement("div");
+    var questionEl = document.createElement("h2");
+    var answerOne = document.createElement("button");
+    var answerTwo = document.createElement("button");
+    var answerThree = document.createElement("button");
+    var answerFour = document.createElement("button");
+    
+    questionEl.textContent = "testing";
+    answerOne.textContent = "answer 1";
+    answerTwo.textContent = "answer 2";
+    answerThree.textContent = "answer 3";
+    answerFour.textContent = "answer 4";
+
+    quizFieldEl.appendChild(questionFormEl);
+    questionFormEl.appendChild(questionEl);
+    questionFormEl.appendChild(answerOne);
+    questionFormEl.appendChild(answerTwo);
+    questionFormEl.appendChild(answerThree);
+    questionFormEl.appendChild(answerFour);
+}
 
 
 generateBtn.addEventListener("click", startQuiz);
