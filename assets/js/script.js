@@ -1,7 +1,7 @@
 var generateBtn = document.querySelector("#quiz");
 var quizFieldEl = document.querySelector("#quiz-field");
 var intro = document.querySelector("#intro");
-var questions = [];
+var questions = [{qs: "testing a", aone: "one", atwo: "two", athree: "three", afour: "four"}];
 
 function startQuiz(event) {
     event.preventDefault();
@@ -20,11 +20,11 @@ function generateQuestion() {
     var answerThree = document.createElement("button");
     var answerFour = document.createElement("button");
     
-    questionEl.textContent = "testing";
-    answerOne.textContent = "answer 1";
-    answerTwo.textContent = "answer 2";
-    answerThree.textContent = "answer 3";
-    answerFour.textContent = "answer 4";
+    questionEl.textContent = questions[0].qs;
+    answerOne.textContent = questions[0].aone;
+    answerTwo.textContent = questions[0].atwo;
+    answerThree.textContent = questions[0].athree;
+    answerFour.textContent = questions[0].afour;
 
     quizFieldEl.appendChild(questionFormEl);
     questionFormEl.appendChild(questionEl);
