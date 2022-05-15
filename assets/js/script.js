@@ -60,20 +60,22 @@ var questionsArray = [
 ];
 
 // basic timer function
+var beginTimer = 75;
 function quizTimer() {
-    var beginTimer = 75;
-
-    var timeInterval = setInterval(function () {
+    timeInterval = setInterval(function () {
         if (beginTimer > 0) {
             timerEl.textContent = "timer: " + beginTimer;
             beginTimer--;
         }else if (beginTimer === 0) {
             timerEl.textContent = "OUT OF TIME!";
         } else {
-            clearInterval(timeInterval);
+            stopTimer();
         }
     }, 1000);
 }
+function stopTimer() {
+    clearInterval(timeInterval);
+};
 
 // starts quiz with first question
 var questionNumber = 0;
@@ -92,9 +94,13 @@ answerbuttonEl.addEventListener("click", function() {
     if (questionNumber < questionsArray.length) {
         createQuestions();
     } else {
-        
+        quizEl.style.display = "none";
+        // stop timer
+        stopTimer();
     }
 });
+
+// evaluate answer incorrect answer beginTimer -= 10;
 
 // start quiz
 startButtonEl.addEventListener("click", function() {
