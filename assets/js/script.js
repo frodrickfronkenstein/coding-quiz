@@ -12,6 +12,7 @@ var answer1El = document.querySelector("#answer1");
 var answer2El = document.querySelector("#answer2");
 var answer3El = document.querySelector("#answer3");
 var answer4El = document.querySelector("#answer4");
+var answerbuttonEl = document.querySelector(".answer");
 document.querySelector("#quiz").style.display = "none";
 
 // questions array
@@ -27,7 +28,7 @@ var questionsArray = [
         correctAnswer: "answerC"
     },
     {
-        question: "Test1:",
+        question: "Test2:",
         answers: {
             answerOne: "answer",
             answerTwo: "answer",
@@ -37,7 +38,7 @@ var questionsArray = [
         correctAnswer: "answerC"
     },
     {
-        question: "Test1:",
+        question: "Test3:",
         answers: {
             answerOne: "answer",
             answerTwo: "answer",
@@ -47,7 +48,7 @@ var questionsArray = [
         correctAnswer: "answerC"
     },
     {
-        question: "Test1:",
+        question: "Test4:",
         answers: {
             answerOne: "answer",
             answerTwo: "answer",
@@ -85,9 +86,15 @@ var createQuestions = function() {
     answer4El.innerHTML = questionsArray[questionNumber].answers.answerFour;
 };
 
-var cycleQuestions = function() {
-    
-}
+answerbuttonEl.addEventListener("click", function() {
+    questionNumber++;
+    console.log(questionNumber);
+    if (questionNumber < questionsArray.length) {
+        createQuestions();
+    } else {
+        
+    }
+});
 
 // start quiz
 startButtonEl.addEventListener("click", function() {
