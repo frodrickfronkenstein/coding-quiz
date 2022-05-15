@@ -5,6 +5,50 @@ var timerEl = document.getElementById('timer');
 var landingPageEl = document.querySelector("#landing-page");
 var startButtonEl = document.querySelector("#start-quiz");
 
+// questions array
+var questionsArray = [
+    {
+        question: "Test1:",
+        answers: {
+            answerOne: "answer",
+            answerTwo: "answer",
+            answerThree: "answerC",
+            answerFour: "answer"
+        },
+        correctAnswer: "answerC"
+    },
+    {
+        question: "Test1:",
+        answers: {
+            answerOne: "answer",
+            answerTwo: "answer",
+            answerThree: "answerC",
+            answerFour: "answer"
+        },
+        correctAnswer: "answerC"
+    },
+    {
+        question: "Test1:",
+        answers: {
+            answerOne: "answer",
+            answerTwo: "answer",
+            answerThree: "answerC",
+            answerFour: "answer"
+        },
+        correctAnswer: "answerC"
+    },
+    {
+        question: "Test1:",
+        answers: {
+            answerOne: "answer",
+            answerTwo: "answer",
+            answerThree: "answerC",
+            answerFour: "answer"
+        },
+        correctAnswer: "answerC"
+    }
+];
+
 
 // basic timer function
 function quizTimer() {
