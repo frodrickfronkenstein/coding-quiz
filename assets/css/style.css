@@ -11,6 +11,8 @@ header {
     flex-wrap: wrap;
 }
 main {
+    margin: auto;
+    width:60%;
     padding: 0 35px;
     display: flex;
     flex-direction: column;
