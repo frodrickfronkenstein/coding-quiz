@@ -18,44 +18,54 @@ document.querySelector("#quiz").style.display = "none";
 // questions array
 var questionsArray = [
     {
-        question: "Test1:",
+        question: "Arrays in javaScript can be used to store _____.",
         answers: {
-            answerOne: "answer",
-            answerTwo: "answer",
-            answerThree: "answerC",
-            answerFour: "answer"
+            answerOne: "numbers and strings",
+            answerTwo: "other arrays",
+            answerThree: "booleans",
+            answerFour: "all of the above"
         },
-        correctAnswer: "answerC"
+        correctAnswer: "all of the above"
     },
     {
-        question: "Test2:",
+        question: "Commonly used data types DO NOT include:",
         answers: {
-            answerOne: "answer",
-            answerTwo: "answer",
-            answerThree: "answerC",
-            answerFour: "answer"
+            answerOne: "string",
+            answerTwo: "booleans",
+            answerThree: "alerts",
+            answerFour: "numbers"
         },
-        correctAnswer: "answerC"
+        correctAnswer: "alerts"
     },
     {
-        question: "Test3:",
+        question: "The condition in an if/else statement is enclosed with:",
         answers: {
-            answerOne: "answer",
-            answerTwo: "answer",
-            answerThree: "answerC",
-            answerFour: "answer"
+            answerOne: "quotes",
+            answerTwo: "curly brackets",
+            answerThree: "parentheses",
+            answerFour: "square brackets"
         },
-        correctAnswer: "answerC"
+        correctAnswer: "parentheses"
     },
     {
-        question: "Test4:",
+        question: "String values must be enclosed with ______ when being assigned to variables.",
         answers: {
-            answerOne: "answer",
-            answerTwo: "answer",
-            answerThree: "answerC",
-            answerFour: "answer"
+            answerOne: "commas",
+            answerTwo: "curly brackets",
+            answerThree: "quotes",
+            answerFour: "parentheses"
         },
-        correctAnswer: "answerC"
+        correctAnswer: "quotes"
+    },
+    {
+        question: "A very useful tool used during development and debugging for printing content to the debugger is:",
+        answers: {
+            answerOne: "JavaScript",
+            answerTwo: "terminal",
+            answerThree: "for loops",
+            answerFour: "console.log"
+        },
+        correctAnswer: "console.log"
     }
 ];
 
