@@ -12,7 +12,43 @@ var answer1El = document.querySelector("#answer1");
 var answer2El = document.querySelector("#answer2");
 var answer3El = document.querySelector("#answer3");
 var answer4El = document.querySelector("#answer4");
-var answerbuttonEl = document.querySelector(".answer");
+
+answer1El.addEventListener("click", function() {
+    questionNumber++;
+    if (questionNumber < questionsArray.length) {
+        createQuestions();
+    } else {
+        quizEl.style.display = "none";
+        stopTimer();
+    }
+});
+answer2El.addEventListener("click", function() {
+    questionNumber++;
+    if (questionNumber < questionsArray.length) {
+        createQuestions();
+    } else {
+        quizEl.style.display = "none";
+        stopTimer();
+    }
+});
+answer3El.addEventListener("click", function() {
+    questionNumber++;
+    if (questionNumber < questionsArray.length) {
+        createQuestions();
+    } else {
+        quizEl.style.display = "none";
+        stopTimer();
+    }
+});
+answer4El.addEventListener("click", function() {
+    questionNumber++;
+    if (questionNumber < questionsArray.length) {
+        createQuestions();
+    } else {
+        quizEl.style.display = "none";
+        stopTimer();
+    }
+});
 document.querySelector("#quiz").style.display = "none";
 
 // questions array
@@ -69,7 +105,7 @@ var questionsArray = [
     }
 ];
 
-// basic timer function
+// start timer
 var beginTimer = 75;
 function quizTimer() {
     timeInterval = setInterval(function () {
@@ -83,6 +119,7 @@ function quizTimer() {
         }
     }, 1000);
 }
+// stop timer
 function stopTimer() {
     clearInterval(timeInterval);
 };
@@ -90,6 +127,7 @@ function stopTimer() {
 // starts quiz with first question
 var questionNumber = 0;
 
+// create questions
 var createQuestions = function() {
     questionEl.innerHTML = questionsArray[questionNumber].question;
     answer1El.innerHTML = questionsArray[questionNumber].answers.answerOne;
@@ -98,18 +136,9 @@ var createQuestions = function() {
     answer4El.innerHTML = questionsArray[questionNumber].answers.answerFour;
 };
 
-answerbuttonEl.addEventListener("click", function() {
-    questionNumber++;
-    console.log(questionNumber);
-    if (questionNumber < questionsArray.length) {
-        createQuestions();
-    } else {
-        quizEl.style.display = "none";
-        // stop timer
-        stopTimer();
-    }
-});
 
+
+// evaluate answers
 // evaluate answer incorrect answer beginTimer -= 10;
 
 // start quiz
