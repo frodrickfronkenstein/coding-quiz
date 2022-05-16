@@ -12,13 +12,19 @@ var answer1El = document.querySelector("#answer1");
 var answer2El = document.querySelector("#answer2");
 var answer3El = document.querySelector("#answer3");
 var answer4El = document.querySelector("#answer4");
-document.querySelector("#quiz").style.display = "none";
+quizEl.style.display = "none";
 
 // Evaluation DOMs
 var correctResponseEl = document.querySelector("#correct");
 var incorrectResponseEl = document.querySelector("#incorrect");
-document.querySelector("#correct").style.display = "none";
-document.querySelector("#incorrect").style.display = "none";
+correctResponseEl.style.display = "none";
+incorrectResponseEl.style.display = "none";
+
+// Game Over DOMs
+var gameOverEl = document.querySelector("#game-over");
+var scoreEl = document.querySelector("#score");
+var initialsBtnEl = document.querySelector("#initialsBtn");
+gameOverEl.style.display = "none";
 
 // click on answers
 answer1El.addEventListener("click", function(event) {
@@ -44,8 +50,7 @@ var cycleQuestions = function() {
     if (questionNumber < questionsArray.length) {
         createQuestions();
     } else {
-        quizEl.style.display = "none";
-        stopTimer();
+        gameOver();
     }
 };
 
@@ -53,18 +58,25 @@ var cycleQuestions = function() {
 var checkAnswer = function () {
     if (event.target.innerHTML === questionsArray[questionNumber].correctAnswer) {
         console.log(true);
-        document.querySelector("#correct").style.display = "block";
+        correctResponseEl.style.display = "block";
         setTimeout(function () {
-            document.querySelector("#correct").style.display = "none";
+            correctResponseEl.style.display = "none";
         }, 1000);
     } else {
         console.log(false);
-        document.querySelector("#incorrect").style.display = "block";
+        incorrectResponseEl.style.display = "block";
         setTimeout(function () {
-            document.querySelector("#incorrect").style.display = "none";
+            incorrectResponseEl.style.display = "none";
         }, 1000);
         beginTimer -= 10;
     }
+};
+
+var gameOver = function() {
+    stopTimer();
+    quizEl.style.display = "none";
+    gameOverEl.style.display = "block";
+    scoreEl.innerHTML = beginTimer;
 };
 
 // questions array
@@ -131,7 +143,7 @@ function quizTimer() {
         }else if (beginTimer === 0) {
             timerEl.textContent = "OUT OF TIME!";
         } else {
-            stopTimer();
+            gameOver();
         }
     }, 1000);
 }
