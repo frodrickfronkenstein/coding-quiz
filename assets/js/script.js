@@ -12,44 +12,60 @@ var answer1El = document.querySelector("#answer1");
 var answer2El = document.querySelector("#answer2");
 var answer3El = document.querySelector("#answer3");
 var answer4El = document.querySelector("#answer4");
-
-answer1El.addEventListener("click", function() {
-    questionNumber++;
-    if (questionNumber < questionsArray.length) {
-        createQuestions();
-    } else {
-        quizEl.style.display = "none";
-        stopTimer();
-    }
-});
-answer2El.addEventListener("click", function() {
-    questionNumber++;
-    if (questionNumber < questionsArray.length) {
-        createQuestions();
-    } else {
-        quizEl.style.display = "none";
-        stopTimer();
-    }
-});
-answer3El.addEventListener("click", function() {
-    questionNumber++;
-    if (questionNumber < questionsArray.length) {
-        createQuestions();
-    } else {
-        quizEl.style.display = "none";
-        stopTimer();
-    }
-});
-answer4El.addEventListener("click", function() {
-    questionNumber++;
-    if (questionNumber < questionsArray.length) {
-        createQuestions();
-    } else {
-        quizEl.style.display = "none";
-        stopTimer();
-    }
-});
 document.querySelector("#quiz").style.display = "none";
+
+// Evaluation DOMs
+var correctResponseEl = document.querySelector("#correct");
+var incorrectResponseEl = document.querySelector("#incorrect");
+document.querySelector("#correct").style.display = "none";
+document.querySelector("#incorrect").style.display = "none";
+
+// click on answers
+answer1El.addEventListener("click", function(event) {
+    checkAnswer();
+    cycleQuestions();
+});
+answer2El.addEventListener("click", function(event) {
+    checkAnswer();
+    cycleQuestions();
+});
+answer3El.addEventListener("click", function(event) {
+    checkAnswer();
+    cycleQuestions();
+});
+answer4El.addEventListener("click", function(event) {
+    checkAnswer();
+    cycleQuestions();
+});
+
+// cycle through questions function
+var cycleQuestions = function() {
+    questionNumber++;
+    if (questionNumber < questionsArray.length) {
+        createQuestions();
+    } else {
+        quizEl.style.display = "none";
+        stopTimer();
+    }
+};
+
+// check answers
+var checkAnswer = function () {
+    if (event.target.innerHTML === questionsArray[questionNumber].correctAnswer) {
+        console.log(true);
+        document.querySelector("#correct").style.display = "block";
+        setTimeout(function () {
+            document.querySelector("#correct").style.display = "none";
+        }, 1000);
+    } else {
+        console.log(false);
+        document.querySelector("#incorrect").style.display = "block";
+        setTimeout(function () {
+            document.querySelector("#incorrect").style.display = "none";
+        }, 1000);
+        beginTimer -= 10;
+    }
+};
 
 // questions array
 var questionsArray = [
@@ -135,11 +151,6 @@ var createQuestions = function() {
     answer3El.innerHTML = questionsArray[questionNumber].answers.answerThree;
     answer4El.innerHTML = questionsArray[questionNumber].answers.answerFour;
 };
-
-
-
-// evaluate answers
-// evaluate answer incorrect answer beginTimer -= 10;
 
 // start quiz
 startButtonEl.addEventListener("click", function() {
