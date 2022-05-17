@@ -94,6 +94,7 @@ var questionNumber = 0;
 startButtonEl.addEventListener("click", function() {
     console.log("button clicked!");
     questionNumber = 0;
+    beginTimer = 75;
     displayQuiz();
     createQuestions();
     quizTimer();
@@ -206,11 +207,19 @@ initialsBtnEl.addEventListener("click", function(event) {
     userIdCounter++;
     saveHighScores();
     displayHighscores();
+    listHighScores();
 });
  
 //save highScores
 var saveHighScores = function() {
     localStorage.setItem("highScores", JSON.stringify(highScores));
+}
+
+var listHighScores = function() {
+    var unsortedScores = JSON.parse(localStorage.getItem("highScores"));
+    var sortedScores = unsortedScores.sort(function(a, b){return b.score-a.score});
+    console.log(sortedScores);
+    
 }
 
 goBackBtn.addEventListener("click", function() {
