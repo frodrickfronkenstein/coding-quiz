@@ -34,12 +34,18 @@
             <p>Your final score is: <span id="score"></span></p>
             <p>Enter your initials:</p>
             <form>
-                <input type="text" name="initials"/>
+                <input type="text" name="initials" id="initials-input" placeholder="your initials"/>
                 <button type="submit" id="initialsBtn">Submit</button>
             </form>
         </section>
         <section id="correct">Yep</section>
         <section id="incorrect">Try Harder!</section>
+        <section id="high-scores">
+            <h2>High Scores</h2>
+            <ol id="score-list"></ol>
+            <button id="go-back">Go Back</button>
+            <button id="clear-highscores">Clear High Scores</button>
+        </section>
     </main>
 
     <script src="./assets/js/script.js"></script>
