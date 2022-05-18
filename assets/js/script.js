@@ -1,5 +1,6 @@
 // constant DOMs
-var timerEl = document.getElementById('timer');
+var timerEl = document.querySelector("#timer");
+var clickOnEl = document.querySelector("#view-high-scores");
 
 // Landing page DOMs
 var landingPageEl = document.querySelector("#landing-page");
@@ -246,6 +247,7 @@ var displayLandingPage = function() {
     gameOverEl.style.display = "none";
     highScoresEl.style.display = "none";
     timerEl.style.display = "block";
+    clickOnEl.style.display = "block";
     timerEl.textContent = "timer: 75";
 };
 
@@ -272,4 +274,5 @@ var displayHighscores = function() {
     gameOverEl.style.display = "none";
     highScoresEl.style.display = "block";
     timerEl.style.display = "none";
+    clickOnEl.style.display = "none";
 }
