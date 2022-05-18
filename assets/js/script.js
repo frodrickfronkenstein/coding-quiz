@@ -160,6 +160,7 @@ var cycleQuestions = function() {
 
 // start timer
 var beginTimer = 75;
+
 function quizTimer() {
     timeInterval = setInterval(function () {
         if (beginTimer > 0) {
@@ -190,7 +191,6 @@ var highScores = [];
 // push initials and score to local storage
 initialsBtnEl.addEventListener("click", function(event) {
     event.preventDefault();
-    var userIdCounter = 0;
     if (document.querySelector('input[name="initials"]').value === "") {
         alert("Enter your initials");
         return false;
@@ -202,9 +202,7 @@ initialsBtnEl.addEventListener("click", function(event) {
         score: userScore
     };
     console.log(userData);
-    userData.id = userIdCounter;
     highScores.push(userData);
-    userIdCounter++;
     saveHighScores();
     displayHighscores();
     listHighScores();
@@ -216,14 +214,28 @@ var saveHighScores = function() {
 }
 
 var listHighScores = function() {
+    // remove previous list 
+    scoreListEl.innerHTML = '';
+
     var unsortedScores = JSON.parse(localStorage.getItem("highScores"));
     var sortedScores = unsortedScores.sort(function(a, b){return b.score-a.score});
-    console.log(sortedScores);
-    
-}
+    console.log(sortedScores[0].initials);
+    for ( i = 0; sortedScores.length; i++) {
+        console.log(sortedScores)
+        var listScore = document.createElement("li");
+        listScore.innerHTML = sortedScores[i].initials + ": " + sortedScores[i].score;
+        scoreListEl.appendChild(listScore);
+    };
+};
 
 goBackBtn.addEventListener("click", function() {
     displayLandingPage();
+});
+
+clearHighscoresBtn.addEventListener("click", function() {
+    highScores = [];
+    saveHighScores();
+    scoreListEl.innerHTML = '';
 });
 
 // Display functions ---------------------
@@ -233,7 +245,9 @@ var displayLandingPage = function() {
     quizEl.style.display = "none";
     gameOverEl.style.display = "none";
     highScoresEl.style.display = "none";
-}
+    timerEl.style.display = "block";
+    timerEl.textContent = "timer: 75";
+};
 
 // quiz display
 var displayQuiz = function() {
@@ -257,4 +271,5 @@ var displayHighscores = function() {
     quizEl.style.display = "none";
     gameOverEl.style.display = "none";
     highScoresEl.style.display = "block";
+    timerEl.style.display = "none";
 }
