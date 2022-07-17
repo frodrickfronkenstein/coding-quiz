@@ -218,11 +218,11 @@ var listHighScores = function() {
     // remove previous list 
     scoreListEl.innerHTML = '';
 
-    var unsortedScores = JSON.parse(localStorage.getItem("highScores"));
+    var unsortedScores = JSON.parse(localStorage.getItem("highScores")) || [];
     var sortedScores = unsortedScores.sort(function(a, b){return b.score-a.score});
-    console.log(sortedScores[0].initials);
     for ( i = 0; sortedScores.length; i++) {
-        console.log(sortedScores)
+        console.log(sortedScores);
+        console.log(sortedScores[i].initials)
         var listScore = document.createElement("li");
         listScore.innerHTML = sortedScores[i].initials + ": " + sortedScores[i].score;
         scoreListEl.appendChild(listScore);
